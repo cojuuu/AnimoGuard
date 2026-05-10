@@ -1,5 +1,4 @@
-import random
-import string
+import random, string
 
 def break_continuity(base_string):
     new_base_string = base_string[0]
@@ -118,32 +117,5 @@ def final_check(base_string):
     return base_string
         
 
-
 def generate_password(base_string, id_num):
     return final_check(break_palindrome(substitute_letters(break_patterns(break_continuity(base_string) , id_num))))
-    
-
-def main():
-    while True:
-        try:
-            id_num = input("Input ID number: ")
-        except ValueError:
-            print("Invalid input!")
-        else:
-            if len(id_num) != 8 or not(75 <= int(id_num[0:3]) <= 126):
-                print("Invalid ID number!")
-            else:
-                break
-    
-    while True:
-        base_string = input("Input base base_string: ")
-        if not base_string[0].isalpha():
-            print("First letter must be an alphabetic character!")
-        elif len(base_string) < 15:
-            print("Minimum length should be at least 15!")
-        else:
-            break
-        
-    print(f"Generated password: {generate_password(base_string, id_num)}")
-    
-main()

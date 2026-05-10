@@ -30,63 +30,87 @@
             <div class="text-secondary mt-1">
               Create a password for your DLSU account
             </div>
-          </div>
 
-          <!-- Form Card -->
-          <div class="form-card card mt-5">
-            <div class="card-body p-4">
-              <form>
+            <!-- Form Card -->
+            <div class="form-card card mt-5">
+              <div class="card-body p-4">
+                <form>
+                  <div class="text-start mb-4">
+                    <label for="id_num" class="form-label fw-semibold"
+                      >ID Number (Username)</label
+                    >
+                    <div class="input-group">
+                      <span class="input-group-text"
+                        ><i class="bi bi-person"></i
+                      ></span>
+                      <input
+                        class="bg-light form-control"
+                        name="id_num"
+                        placeholder="12XXXXXX"
+                        autocomplete="off"
+                        required
+                        autofocus
+                      />
+                    </div>
+                  </div>
+                  <div class="text-start mb-4">
+                    <label for="base_string" class="form-label fw-semibold"
+                      >Base Passphrase</label
+                    >
+                    <div class="input-group">
+                      <span class="input-group-text"
+                        ><i class="bi bi-lock"></i
+                      ></span>
+                      <input
+                        class="bg-light form-control"
+                        name="base_string"
+                        placeholder="Enter your passphrase"
+                        autocomplete="off"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-success w-100 d-flex justify-content-center"
+                    type="submit"
+                  >
+                    Create password<span class="ms-2"
+                      ><i class="bi bi-arrow-right-circle"></i
+                    ></span>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Result Card -->
+            <div
+              class="result-card card mt-5 bg-success bg-opacity-10 d-none"
+              id="result_card"
+            >
+              <div class="card-body p-4">
                 <div class="text-start mb-4">
-                  <label for="id_num" class="form-label fw-semibold"
-                    >ID Number (Username)</label
+                  <label for="generated_pw" class="form-label fw-semibold"
+                    >Your Generated Password:</label
                   >
                   <div class="input-group">
-                    <span class="input-group-text"
-                      ><i class="bi bi-person"></i
-                    ></span>
                     <input
                       class="bg-light form-control"
-                      name="id_num"
-                      placeholder="12XXXXXX"
-                      autocomplete="off"
-                      required
-                      autofocus
+                      id="generated_pw"
+                      type="text"
+                      readonly
                     />
+                    <button class="btn btn-outline-secondary">
+                      <span class="me-2"><i class="bi bi-copy"></i></span>Copy
+                    </button>
                   </div>
                 </div>
-                <div class="text-start mb-4">
-                  <label for="base_string" class="form-label fw-semibold"
-                    >Base Passphrase</label
-                  >
-                  <div class="input-group">
-                    <span class="input-group-text"
-                      ><i class="bi bi-lock"></i
-                    ></span>
-                    <input
-                      class="bg-light form-control"
-                      name="base_string"
-                      placeholder="Enter your passphrase"
-                      autocomplete="off"
-                      required
-                    />
-                  </div>
-                </div>
-                <button
-                  class="btn btn-success w-100 d-flex justify-content-center"
-                  type="submit"
-                >
-                  Create password<span class="ms-2"
-                    ><i class="bi bi-arrow-right-circle"></i
-                  ></span>
-                </button>
-              </form>
+              </div>
             </div>
           </div>
-
-          <!-- Result Card -->
-          <div class="result-card card mt-5"></div>
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>
 </html>
