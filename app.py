@@ -16,10 +16,12 @@ def create_password():
     base_string = request.form.get("base_string")
     
     if len(id_num) != 8 or not(75 <= int(id_num[0:3]) <= 126):
-        print("Invalid ID number!")
+        return jsonify({"error": "Invalid ID number!"}), 400
+
     elif not base_string[0].isalpha():
-        print("First letter must be an alphabetic character!")
+        return jsonify({"error": "First letter must be an alphabetic character!"}), 400
+
     elif len(base_string) < 15:
-        print("Minimum length should be at least 15!")
+        return jsonify({"error": "Minimum length should be at least 15!"}), 400
     
     return jsonify(generate_password(base_string, id_num))
